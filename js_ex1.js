@@ -10,8 +10,11 @@ const output = function () {
 // html 버튼에 onclick추가
 
 // console.log(document)
-const arr = [1, 2, 3]
-console.log('arr === [1, 2, 3]', arr === [1, 2, 3]);
+// const arr = [1, 2, 3]
+// console.log('arr === [1, 2, 3]', arr === [1, 2, 3]);
+
+const messageContainer = document.querySelector("#d-day-message");
+messageContainer.textContent = "D-Day를 입력해주세요.";
 const dateFormMaker = function () {
   const inputYear = document.querySelector("#target-year-input").value;
   const inputMonth = document.querySelector("#target-month-input").value;
@@ -20,19 +23,25 @@ const dateFormMaker = function () {
   // const dateFormat = inputYear + '-' + inputMonth + '-' + inputDate; 
   const dateFormat = `${inputYear}-${inputMonth}-${inputDate}` //가독성 더 좋게
   return dateFormat;
-  //console.log(inputYear, inputMonth, inputDate);
+  // console.log(inputYear, inputMonth, inputDate);
 };
 
-const counterMaker = function () {
-  const targetDateInput = dateFormMaker();
-  const nowDate = new Date(); //현재 시간
-  const targetDate = new Date(targetDateInput).setHours(0, 0, 0, 0); //지금 날짜
-  const remaining = (targetDate - nowDate) / 1000;
+const counterMaker = function (){
+  const tartgetDateInput = dateFormMaker();
+  const nowDate = new Date(); //날짜데이터를 가져오는 new Date
+  const tartgetDate = new Date(tartgetDateInput).setHours(0,0,0,0);
+  const remaining = (tartgetDate - nowDate) / 1000;
 
-  const remainingDAte = Math.floor(remaining / 3600 / 24);
-  const remainingHours = Math.floor(remaining / 3600)% 24;
-  const remainingMin = Math.floor (remaining / 60)% 60;
-  const remainingSec = Math.floor (remaining) % 60;
+  if(remaining <= 0){
+    console.log("타이머가 종료되었습니다.");
+  }else if(isNaN(remaining)){
+    console.log("유효한 시간대가 아닙니다.");
+  }
 
-  console.log(remainingDAte, remainingHours, remainingMin, remainingSec);
-};
+  const remainingDate = Math.floor(remaining / 3600 / 24 ); //날짜 / 소수점 이하의 수를 내림
+  const remainingHours = Math.floor(remaining / 3600) % 24; //시간 
+  const remainingMin = Math.floor(remaining / 60) %  60; //분
+  const remainingSec = Math.floor(remaining) % 60; //초
+  console.log(remainingDate, remainingHours, remainingMin, remainingSec);
+}
+
