@@ -1,20 +1,11 @@
 //#함수 선언과 호출
 //함수 정의
-const output = function () {
-  console.log("함수를 실행했어요");
-};
-//함수 실행
-// output();
-
-// #onclick 이벤트 추가
-// html 버튼에 onclick추가
-
-// console.log(document)
-// const arr = [1, 2, 3]
-// console.log('arr === [1, 2, 3]', arr === [1, 2, 3]);
 
 const messageContainer = document.querySelector("#d-day-message");
-messageContainer.textContent = "D-Day를 입력해주세요.";
+const container = document.querySelector("#d-day-container");
+
+container.style.display= "none"; //css
+messageContainer.innerHTML = "<h3>D-Day를 입력해주세요.</hr>";
 const dateFormMaker = function () {
   const inputYear = document.querySelector("#target-year-input").value;
   const inputMonth = document.querySelector("#target-month-input").value;
@@ -31,17 +22,74 @@ const counterMaker = function (){
   const nowDate = new Date(); //날짜데이터를 가져오는 new Date
   const tartgetDate = new Date(tartgetDateInput).setHours(0,0,0,0);
   const remaining = (tartgetDate - nowDate) / 1000;
-
+  
   if(remaining <= 0){
-    console.log("타이머가 종료되었습니다.");
+    //만약 remaining이 0이라면, 타이머가 종료되었습니다. 출력
+    messageContainer.innerHTML = "<h3>타이머가 종료되었습니다.</h3>";
+    messageContainer.style.display = 'flex';
+    return;
   }else if(isNaN(remaining)){
-    console.log("유효한 시간대가 아닙니다.");
+    //만약 잘못된 날짜가 들어왔다면, 유효한 시간대가 아닙니다. 출력
+    container.style.display = 'nonr';
+    messageContainer.innerHTML = "<h3>유효한 시간대가 아닙니다.</h3>";
+    messageContainer.style.display = 'flex';
+    return;
+  }
+  remaining.innerText = "";
+
+  //오브젝트(객체)
+  const remainingObj = {
+    remainingDate: Math.floor(remaining / 3600 / 24),
+    remainingHours: Math.floor(remaining / 3600) % 24,
+    remainingMin : Math.floor(remaining / 60) %  60, //분
+    remainingSec : Math.floor(remaining) % 60, //초
   }
 
-  const remainingDate = Math.floor(remaining / 3600 / 24 ); //날짜 / 소수점 이하의 수를 내림
-  const remainingHours = Math.floor(remaining / 3600) % 24; //시간 
-  const remainingMin = Math.floor(remaining / 60) %  60; //분
-  const remainingSec = Math.floor(remaining) % 60; //초
-  console.log(remainingDate, remainingHours, remainingMin, remainingSec);
-}
+  const documentArr = ['days','hours','min','sec'];
+  const timeKeys = Object.keys(remainingObj);
+
+  //for of는 배열에 많이 사용
+  for (let tag of documentArr){
+    document.getElementById(tag).textContent = remainingObj[timeKeys[i]];
+    i++;
+  }
+
+  // for in 은 객체에 많이 사용
+  // let i = 0;
+  // for(let key in documentObj){
+  //   documentObj[key].textContent = remainingObj[timeKeys[i]];
+  //   i++;
+  // }
+
+  // const documentObj = {
+  //   days : document.querySelector("#days"),
+  //   hours : document.querySelector("#hours"),
+  //   min : document.querySelector("#min"),
+  //   sec : document.querySelector("#sec"),
+  // };
+  // const docKeys = Object.keys(documentObj);
+
+  // for(let i = 0; i < timeKeys.length; i=i+1){
+  //   documentObj[docKeys[i]].textContent = remainingObj[timeKeys[i]]
+  // }
+  // const days =  document.querySelector("#days");
+  // const hours = document.querySelector("#hours");
+  // const min = document.querySelector("#min");
+  // const sec = document.querySelector("#sec");
+
+  // documentObj['days'].textContent = remainingObj['remainingDate'];
+  // documentObj['hours'].textContent = remainingObj['remainingHours'];
+  // documentObj['min'].textContent = remainingObj['remainingMin'];
+  // documentObj['sec'].textContent = remainingObj['remainingSec'];
+};
+
+const starter = function() {
+  container.style.display = 'flex';
+  messageContainer.style.display = 'none';
+  for(let i = 0; i < 100; i++){
+    setTimeout(() => {
+      counterMaker();
+    }, 1000 * i);
+  }
+};
 
