@@ -1,0 +1,53 @@
+section{
+  margin: 0 auto;
+  display: block;
+  width: 400px;
+  margin-top: 250px;
+  background-color: #f7f7f7;
+  border-radius: 25px;
+  padding: 50px 50px 40px 50px;
+}
+li{
+  position: relative;
+  list-style: none;
+}
+h1{
+  font-weight: 800;
+  margin-bottom:20px;
+}
+.todo-input > input{
+  width: 290px;
+  padding: 12px 10px;
+  margin-right: 5px;
+  border: 1px solid #e1e1e1;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+li > input {
+  margin-right: 10px;
+  border-color: #e1e1e1;
+}
+li > button{
+  position: absolute;
+  top: 19%;
+  right: 18px;
+  border-radius: 6px;
+  border: 1px solid red;
+  background: #fff;
+  color: red;
+  padding: 4px 10px;
+}
+.btn--send{
+  width: 78px;
+  padding: 10px 8px;
+  border-radius: 8px;
+  border-color: transparent;
+  background-color: black;
+  color: #fff;
+}
+.todo-contents li{
+  padding: 12px 10px;
+  background-color: #fff;
+  margin: 8px 0;
+  border-radius: 8px;
+}
