@@ -1,0 +1,48 @@
+body{
+  background-color: #f7f7f7;
+  margin: 0;
+}
+li{
+  list-style: none;
+}
+ul{
+  padding-left: 14px;
+  margin-top: 80px;
+}
+header{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #e1e1e1e1;
+  padding: 14px 14px;
+  background-color: #fff;
+}
+header .left{
+  font-weight: 800;
+  font-size: 24px;
+}
+.list-wrap{
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 260px;
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: ease-in 0.3s;
+  background-color: #d5d2d2;
+  height: 100vh;
+}
+.list-wrap li{
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+.list-wrap.active{
+  opacity: 1;
+  transform: translateX(0);
+}
+/* Mobile - Landscape */
+@media (max-width: 576px) {
+  .list-wrap{
+    width: 100vw;
+  }
+}
