@@ -54,13 +54,18 @@ const filterBtns = document.querySelectorAll(".filter-btn");
 
 // load items
 window.addEventListener("DOMContentLoaded", function () {
+  // 페이지가 로드되었을 때 실행되는 이벤트 리스너
+  // displayMenuItems 함수를 호출하여 초기 메뉴 항목들을 표시합니다.
   displayMenuItems(menu);
 });
 
 // filter items
 filterBtns.forEach(function (btn) {
+  // 필터 버튼들에 대해 반복하면서 클릭 이벤트 리스너를 등록합니다.
   btn.addEventListener("click", function (e) {
     const category = e.target.dataset.id;
+    // 클릭된 버튼의 데이터 속성인 "data-id"를 가져와서 해당 카테고리를 설정합니다.
+    // "all"인 경우 모든 항목을 반환하고, 그 외의 경우 해당 카테고리에 속하는 항목들을 필터링합니다.
     const menuCategory = menu.filter(function (menuItem) {
       if (category === "all") {
         return true; // 모든 항목을 반환
@@ -70,10 +75,13 @@ filterBtns.forEach(function (btn) {
     });
 
     displayMenuItems(menuCategory);
+    // 필터링된 항목들을 displayMenuItems 함수를 호출하여 화면에 표시합니다.
   });
 });
 
+
 function displayMenuItems(menuItems) {
+  // 메뉴 항목들을 화면에 표시하는 함수
   let displayMenu = menuItems.map(function (item) {
     return `<article class="menu-item">
       <img src=${item.img} alt=${item.title} class="photo" />
@@ -90,5 +98,7 @@ function displayMenuItems(menuItems) {
   });
 
   displayMenu = displayMenu.join("");
+  // displayMenu 배열을 문자열로 변환하고, 각 항목들을 하나의 문자열로 결합합니다.
+  // 그리고 sectionCenter 요소의 innerHTML에 할당하여 화면에 표시합니다.
   sectionCenter.innerHTML = displayMenu;
 }
