@@ -53,7 +53,7 @@ const sectionCenter = document.querySelector(".section-center");
 const filterBtns = document.querySelectorAll(".filter-btn");
 
 window.addEventListener("DOMContentLoaded", function () {
-  sectionView(menu)
+  sectionView(menu);
 });
 
 function sectionView(menuItem) {
@@ -71,6 +71,20 @@ function sectionView(menuItem) {
       </div>
     </article>`;
   });
-  viewItem = viewItem.join("")
+  viewItem = viewItem.join("");
   sectionCenter.innerHTML = viewItem;
 }
+
+filterBtns.forEach(function (btn) {
+  btn.addEventListener("click", function (e) {
+    const category = e.target.dataset.id;
+    const menuCategory = menu.filter(function (item) {
+      if (category === item.category) {
+        return item;
+      } else if (category === "all") {
+        return true;
+      }
+    });
+    sectionView(menuCategory);
+  });
+});
