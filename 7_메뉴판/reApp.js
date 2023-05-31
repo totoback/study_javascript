@@ -53,38 +53,42 @@ const sectionCenter = document.querySelector(".section-center");
 const filterBtns = document.querySelectorAll(".filter-btn");
 
 window.addEventListener("DOMContentLoaded", function () {
-  sectionView(menu);
+  menuView(menu);
 });
 
-function sectionView(menuItem) {
-  let viewItem = menuItem.map(function (item) {
+function menuView(menuItem) {
+  let menuViewItem = menuItem.map(function (item) {
+
     return `<article class="menu-item">
-      <img src=${item.img} alt=${item.title} class="photo" />
-      <div class="item-info">
-        <header>
-          <h4>${item.title}</h4>
-          <h4 class="price">${item.price}</h4>
-        </header>
-        <p class="item-text">
-          ${item.desc}
-        </p>
-      </div>
-    </article>`;
+    <img src=${item.img} alt=${item.title} class="photo" />
+    <div class="item-info">
+      <header>
+        <h4>${item.title}</h4>
+        <h4 class="price">${item.price}</h4>
+      </header>
+      <p class="item-text">
+        ${item.desc}
+      </p>
+    </div>
+  </article>
+    `;
   });
-  viewItem = viewItem.join("");
-  sectionCenter.innerHTML = viewItem;
+  menuViewItem = menuViewItem.join("")
+  sectionCenter.innerHTML = menuViewItem
 }
 
-filterBtns.forEach(function (btn) {
-  btn.addEventListener("click", function (e) {
+filterBtns.forEach(function(btn){
+  btn.addEventListener("click",function(e){
+    // console.log(btn)
     const category = e.target.dataset.id;
-    const menuCategory = menu.filter(function (item) {
-      if (category === item.category) {
-        return item;
-      } else if (category === "all") {
-        return true;
+    // console.log(category)
+    const menuCategory = menu.filter(function(menuItem){
+      if(category === "all"){
+        return true; //모든걸 반환
+      } else if(category === menuItem.category){
+        return menuItem;
       }
-    });
-    sectionView(menuCategory);
-  });
-});
+    })
+    menuView(menuCategory)
+  })
+})
