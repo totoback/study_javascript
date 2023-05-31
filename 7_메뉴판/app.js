@@ -62,9 +62,6 @@ filterBtns.forEach(function (btn) {
   btn.addEventListener("click", function (e) {
     const category = e.target.dataset.id;
     const menuCategory = menu.filter(function (menuItem) {
-      if (menuItem.category === category) {
-        return menuItem;
-      }
       if (category === "all") {
         return true; // 모든 항목을 반환
       } else if (menuItem.category === category) {
