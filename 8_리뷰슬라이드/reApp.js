@@ -41,6 +41,9 @@ const info = document.querySelector("#info");
 let currentItem = 0;
 
 window.addEventListener("DOMContentLoaded", function () {
+  // showPerson(reviews)를 호출하여 리뷰 배열 전체를 인자로 전달하고 있습니다.
+  // showPerson() 함수 내부에서는 첫 번째 인덱스의 리뷰를 보여주는 로직이 구현되어 있습니다.
+  // 이렇게 구현하면 항상 첫 번째 리뷰가 초기에 보여지게 됩니다.
   showPerson(reviews);
 });
 
