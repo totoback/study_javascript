@@ -173,12 +173,12 @@ main {
   margin-right: auto;
 }
 .container {
-  width: 80vw;
+  width: 100%;
   max-width: var(--fixed-width);
 }
 .review {
   background: var(--clr-white);
-  padding: 1.5rem 2rem;
+  padding: 2.5rem 2rem;
   border-radius: var(--radius);
   box-shadow: var(--light-shadow);
   transition: var(--transition);
@@ -196,14 +196,16 @@ main {
   margin-bottom: 1.5rem;
 }
 #person-img {
-  width: 90%;
+  width: 100%;
   display: block;
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
+  margin: 0 auto;
   position: relative;
+  margin-bottom: 50px;
 }
-.img-container::after {
+/* .img-container::after {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   content: "\f10e";
@@ -228,7 +230,7 @@ main {
   top: -0.25rem;
   right: -0.5rem;
   border-radius: 50%;
-}
+} */
 #author {
   margin-bottom: 0.25rem;
 }
@@ -255,8 +257,10 @@ main {
 .next-btn:hover {
   color: var(--clr-primary-5);
 }
+.button-container{
+  margin-bottom: 30px;
+}
 .random-btn {
-  margin-top: 0.5rem;
   background: var(--clr-primary-10);
   color: var(--clr-primary-5);
   padding: 0.25rem 0.5rem;
