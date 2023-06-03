@@ -20,6 +20,7 @@ function todoList() {
   deleteBtn.addEventListener("click", function (e) {
     if (checkbox.checked === true) {
       e.target.parentNode.remove()
+      //deleteBtn의 부모요소를 삭제해라
     }
   });
 
