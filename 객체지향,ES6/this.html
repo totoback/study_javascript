@@ -7,9 +7,12 @@
     <title>Document</title>
   </head>
   <body>
+    <button id="button">버튼</button>
     <script>
-      //230606_2
+      //**230606_2
       // this
+
+      //1번쨰 뜻
       console.log(this); //{window}가 뜸
 
       function 함수() {
@@ -17,6 +20,7 @@
       }
       함수();
 
+      //2번째 뜻
       let obj = {
         data: {
           함수2: function () {
@@ -34,6 +38,37 @@
       obj.data.함수();
       obj.data; //kim
       obj.함수();
+
+
+      //**230606_3
+
+      //3번쨰 뜻
+      function 기계() {
+        this.name = "kim"; //여기서 this는 기계 자체, instance
+      }
+      let obj2 = new 기계();
+
+      //4번쨰 뜻
+      document.getElementById("button").addEventListener("click", function (e) {
+        // console.log(this)
+        console.log(this); //e.currentTartget과 의미가 똑같음 //document.getElementById("button")
+        console.log(e.currentTarget) //document.getElementById("button")
+
+        let arr = [1, 2, 3];
+        arr.forEach(function (a) {
+          console.log(this); //window 1or2뜻
+        });
+        
+      });
+      let object = {
+          names: ["김", "최", "박"],
+          함수: function () {
+            console.log(this) // 아래에 this와 똑같
+            object.names.forEach(function () {
+              console.log(this); //window 단일로 썼을땐 window인데, =>화살표함수를 사용하면 함수안에 콘솔이 있다면 위의 결과와 동일
+            });
+          },
+        };
     </script>
   </body>
 </html>
