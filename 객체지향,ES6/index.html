@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="hello"></p>
+    <button id="button">버튼</button>
+    <script>
+      // 230606_1
+      document.getElementById("button").addEventListener("click", () => {
+        document.getElementById("hello").innerHTML = "하이";
+        작명("할롱");
+      });
+      let name = "kim";
+      let age = "20";
+
+      function 작명(파라미터, 여러개가능) {
+        //함수업그레이드 파라미터
+        document.querySelector(".hello").innerHTML = 파라미터; //할롱
+      }
+
+      let name2 = ["kim", "park"];
+      name2[0] //kim
+      let obj = { name: "kim", age: 20 };
+
+      for (let i=0; i<5; i++){
+        console.log("안녕")
+      }
+    </script>
+  </body>
+</html>
