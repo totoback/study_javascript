@@ -18,6 +18,7 @@
 
       사람.sayHi(); //안녕 나는 손흥민
 
+      //내가 품
       let 자료 = {
         data: [1, 2, 3, 4, 5],
       };
@@ -25,6 +26,18 @@
       자료.전부더하기 = function () {
         const sum = this.data.reduce((a, b) => a + b);
         console.log(sum);
+      };
+
+      //문제 풀이
+      var db = {
+        data: [1, 2, 3, 4, 5],
+      };
+      db.모두더하기 = function () {
+        var 합 = 0;
+        this.data.forEach(function (a) {
+          합 = 합 + a;
+        });
+        console.log(합);
       };
 
       자료.전부더하기(); //15
@@ -42,8 +55,8 @@
 
       document.getElementById("버튼").addEventListener("click", function () {
         //console.log(this.innerHTML);
-        //setTimeout과 같은 콜백 함수에서의 this는 일반적으로 전역 객체인 window를 가리키게 됨
         setTimeout(() => {
+          //setTimeout과 같은 콜백 함수에서의 this는 일반적으로 전역 객체인 window를 가리키게 됨
           // 즉, setTimeout 함수 내에서 화살표 함수를 사용하면 화살표 함수 내부의 this는 상위 스코프인 이벤트 핸들러 함수에서의 this 값
           console.log(this.innerHTML);
         }, 3000);
