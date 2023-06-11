@@ -21,7 +21,7 @@
         console.log(안녕);
         let 안녕 = "Hello!";
       }
-      //아마도 콘솔에 Hello가 출력되지 않을까
+      //에러
 
       //문제2
       함수();
@@ -29,7 +29,7 @@
         console.log(안녕);
         var 안녕 = "Hello!";
       };
-      //undefined
+      //함수아님
 
       //문제3
       let a = 1;
@@ -42,11 +42,11 @@
       //문제4
       let aa = 1;
       var b = 2;
-      window.aa = 3;
+      window.aa = 3; //재선언 불가능
       window.b = 4;
 
       console.log(aa + b);
-      //7
+      //5
 
       //문제5
       setTimeout(function() { console.log(1); }, 1000 );
@@ -56,11 +56,12 @@
       setTimeout(function() { console.log(5); }, 5000 );
 
       for (let i = 1; i < 6; i++) {
+        //let i = 0; 으로 들어간다 생각하셈
         setTimeout(function () {
           console.log(i);
         }, i * 1000);
       }
-      // let으로 변경
+      // let으로 변경 {for안에 있는 중괄호가 범위라 바꿔주면 실행됨}
 
       //문제6
       const btn = document.querySelectorAll("button");
