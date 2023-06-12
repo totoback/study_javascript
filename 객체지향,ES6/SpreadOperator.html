@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>모든 괄호를 없애자</title>
+  </head>
+  <body>
+    <script>
+      // 모든 괄호를 없애주는 Spread Operator 활용방법 1
+      // ... 대괄호 다 해체시킴
+      // ... 중괄호 다 해체시킴
+      // 중괄호,대괄호, 함수 소괄호 안에서만 쓸 수 있다.
+      var array = ["hello", "world"];
+      console.log(array); // 배열로나옴
+      console.log(...array); //문자열 나열됨
+
+      var 문자 = "hello";
+      console.log(문자); //hello
+      console.log(...문자); //h,e,l,l,o 해체됨
+      console.log(문자);
+
+      var a = [1, 2, 3];
+      var b = [4, 5];
+
+      var c = [...a];
+      console.log(...a, ...b); //합쳐짐
+      console.log(c);
+
+      // Deep copy할 때 유용하게 쓰입니다.
+      var obj1 = { a: 1, b: 2 };
+      var obj2 = { ...obj1, c: 3 };
+      var obj2 = obj1; //이렇게 카피하면 안됨
+      var obj2 = { ...obj1 }; // deepcopy 독립적인 복사가능
+      var obj2 = { a: 1, ...obj1 };// 복사한 값과 내가 입력한 값이 같을때 가장 뒤에 있는 값으로 출력됨
+      // 카피하고싶을떄
+    </script>
+  </body>
+</html>
