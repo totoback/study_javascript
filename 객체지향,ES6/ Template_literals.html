@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let pants = 20;
+      let socks = 100;
+
+      function 해체분석기(문자들, ...변수들) {
+        console.log(문자들); //array
+        console.log(변수들); //[20,100]
+        console.log(...변수들); //20 100
+        console.log(문자들[1] + 변수들[0] + 문자들[0] + 변수들[1]); //양말 20 바지 100
+      }
+      
+      // pants가 0이면 "바지 다 팔렸어요" 출력하기
+      function 해체분석기2(글자들, 변수들1, 변수들2) {
+        if (변수들1 == 0) {
+          console.log(`바지 다 팔렸어요`);
+        }
+      }
+
+      해체분석기`바지 ${pants} 양말 ${socks}`;
+      해체분석기2`바지 ${pants} 양말 ${socks}`;
+    </script>
+  </body>
+</html>
