@@ -33,8 +33,31 @@
       var obj2 = { ...obj1, c: 3 };
       var obj2 = obj1; //이렇게 카피하면 안됨
       var obj2 = { ...obj1 }; // deepcopy 독립적인 복사가능
-      var obj2 = { a: 1, ...obj1 };// 복사한 값과 내가 입력한 값이 같을때 가장 뒤에 있는 값으로 출력됨
+      var obj2 = { a: 1, ...obj1 }; // 복사한 값과 내가 입력한 값이 같을때 가장 뒤에 있는 값으로 출력됨
       // 카피하고싶을떄
+
+      //*****3번째 용도
+      //함수 파라미터 넣을 떄
+      function 더하기(a, b, c) {
+        console.log(a + b + c);
+      }
+      let array0 = [10, 20, 30];
+      더하기.apply(undefined, array);
+      더하기(...array0); //요즘방식
+
+      let person = {
+        인사: function () {
+          console.log(this.name + "안녕");
+        },
+      };
+      let person2 = {
+        name: "손흥민",
+        //apply함수가 실행되었다고 보셈
+      };
+
+      //***apply
+      person.인사.apply(person2, [1, 2]);
+      person.call(person2, 1, 2);
     </script>
   </body>
 </html>
