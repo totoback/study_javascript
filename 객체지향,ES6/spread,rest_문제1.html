@@ -40,8 +40,8 @@
       //풀이 : 5+10=15가 출력 됨
 
       function 어레이(...rest) {
-        console.log(rest)
-        return rest;//입력된 자료를 배열로 만들어 반환하는 것이기 때문에 return
+        console.log(rest);
+        return rest; //입력된 자료를 배열로 만들어 반환하는 것이기 때문에 return
       }
       var newArray = 어레이(1, 2, 3, 4, 5);
 
@@ -50,11 +50,9 @@
       console.log(Math.max(...numbers));
       //풀이 : console.log(Math.max(...numbers))
 
-      function 정렬(...rest) {
-        for (let i = 0; i < rest.length; i++) {
-          console.log([...rest[i]].sort());
-          //풀이: 문자열로 다시 감싼 후 sort메서드 사용
-        }
+      function 정렬(문자들) {
+        console.log(...[...문자들].sort());
+        //풀이: 문자열로 다시 감싼 후 sort메서드 사용
       }
 
       정렬("bear");
