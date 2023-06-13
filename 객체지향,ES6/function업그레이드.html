@@ -13,10 +13,11 @@
       function 더하기(a, b = 10 * a) {
         console.log(a + b);
       }
+
       더하기(2); //11
       //파라미터1개만 입력되었을떄 b를 디폴트로 사용함
 
-      //arguments -
+      //arguments -옛날 문법
       function 함수(a, b, c) {
         //위 파라미터
         // console.log(arguments)
@@ -26,6 +27,25 @@
         }
       }
       함수(1, 2, 3);
+
+      //...rest 파라미터 자리에 ...붙으면 rest
+      // 그나머지는 스프레드 오퍼레이터
+      function 함수2(...rest) {
+        console.log(rest); //배열로 나옴
+        console.log(...rest); //배열 분해됨
+      }
+      함수2(2, 4, 1, 4, 5);
+
+      //모든 파라미터들을 콘솔에 하나씩 출력하려면
+      //몇개를 지정하지않아도 유연하게 rest쓸 수 있음
+      //1....rest는 항상 마지막에 써야 함
+      //2.두번 이상 금지
+      function 함수3(...rest) {
+        for (let i = 0; i < rest.length; i++) {
+          console.log(rest[i]);
+        }
+      }
+      함수3(1, 2, 3, 4);
     </script>
   </body>
 </html>
