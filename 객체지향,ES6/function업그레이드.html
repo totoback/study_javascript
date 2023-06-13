@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //함수의 업그레이드
+      //디폴트 파라미터
+      function 더하기(a, b = 10 * a) {
+        console.log(a + b);
+      }
+      더하기(2); //11
+      //파라미터1개만 입력되었을떄 b를 디폴트로 사용함
+
+      //arguments -
+      function 함수(a, b, c) {
+        //위 파라미터
+        // console.log(arguments)
+        //위 알규먼트
+        for (let i = 0; i < arguments.length; i++) {
+          console.log(arguments[i]);
+        }
+      }
+      함수(1, 2, 3);
+    </script>
+  </body>
+</html>
