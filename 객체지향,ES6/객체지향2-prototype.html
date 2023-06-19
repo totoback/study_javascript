@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>prototype</title>
+</head>
+<body>
+  <script>
+    //230619
+    //prototype 상속
+    function student(이름, 나이) {
+        //this는 새로 생성되는 obj를 뜻함
+        // this : 함수 내부 새로 생성되는 오브젝트(instance)
+        this.name = 이름;
+        this.age = 나이;
+        this.sayHi = function () {
+          console.log("안녕하세요" + this.name + "입니다");
+        };
+      }
+
+      student.prototype.gender = "여"
+
+      let 학생2 = new student("공주", 20);
+      let 학생3 = new student("왕자", 22);
+
+      학생2.gender;
+      student.prototype
+      //js가 학생2 오브젝트 자체에 gender 가 있는지 확인
+      // 자체에 gender가 없다면 부모 오브젝트에 검사함 있다면 출력
+
+      //내장함수 어케 쓸 수 있는거지? 부모의 프로토타입(유전자에) 해당 내장 함수가 있기 때문에 쓸 수 있음
+      학생2.toString();//내장함수
+
+      var arr = [1,2,3] //우리가 작성 할 때 
+      var arr = new Array(1,2,3) //컴터가 작성할떄
+      var obj = {name:"kim"} //우리가 작성 할 때 
+      var obj = new Object() //컴터가 작성할떄
+      
+      // 동작원리 = 학생2 에 toString이 없네? -> student.prototype에 toString이 없네? -> Object.prototype 여기는 있네! 
+  </script>
+</body>
+</html>
