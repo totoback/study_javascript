@@ -30,6 +30,50 @@
       for (let i = 0; i < 5; i++) {
         console.log("안녕");
       }
+
+      // ### 중복제거하는 방법
+      // 1. **forEach()와 includes()를 사용하여 배열에서 중복 제거**
+
+      // includes 는 배열에 특정 요소가 포함되어있는지 여부를 확인하는데 사용된다.
+
+      // 배열을 앞에서부터 순회하며,  엄격한 일치 ===로 주어진 요소와 각 요소를 비교한다.
+
+      // 해당 요소가 배열에 포함되어 있으면 true, 그렇지 않으면 false를 반환한다.
+
+      배열.includes(요소, 시작인덱스);
+      // - **`배열`**: 검색할 배열입니다.
+      // - **`요소`**: 배열에서 찾을 요소입니다.
+      // - **`시작인덱스`** (선택적): 검색을 시작할 인덱스입니다. 기본값은 0입니다.
+
+      const arr = [1, 2, 3, 4, 5];
+
+      console.log(arr.includes(3)); // true
+      console.log(arr.includes(6)); // false
+
+      let number = [1, 2, 3, 4, 5]; //1,2,3,4,5라는 배열을 Number에 저장
+      let numberBox = []; //배열 초기화
+
+      number.forEach((item) => {
+        //number 배열의 고유한 숫자만 추출, item 매개변수 가지고 있음
+        if (!numberBox.includes(item)) {
+          //numberBox에 배열에 아직 포함되지 않은 문자인지 확인
+          numberBox.push(item);
+          //numberBox에 포함되어 있지 않다면 item을 추가
+        }
+      });
+
+      //smeg mall 따로 작업
+      // 내가 작성한코드 응용
+      //중복제거
+      const isDuplicate = comparisonWrap.includes(itemBoxHTML);
+      // comparisonWrap 배열에 itemBoxHTML이 있는지 체크
+      console.log(isDuplicate);
+      //콘솔로 찍어보니 빈배열에 itemBoxHTML이 없기 때문에 false가 출력
+      if (!isDuplicate) {
+        //isDuplicate 변수가 중복되지 않은 경우(false)인경우
+        comparisonWrap.push(itemBoxHTML);
+        //comparisonWrap배열에 itemBoxHTMl추가해줘! 알겠G
+      }
     </script>
   </body>
 </html>
