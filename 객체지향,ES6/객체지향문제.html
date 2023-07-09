@@ -58,6 +58,31 @@
       Unit1.heal = 50;
       // 변경된 체력과 공격력을 포함한 battlePoint 출력
       console.log(Unit1.battlePoint); // 공격력(5) + 체력(100 + 50) = 155
+
+      //문제풀이
+      // 3. 고양이와 강아지 object들에 기능을 하나 추가하고 싶습니다.
+      // 모든 고양이와 강아지 object들은 .한살먹기() 라는 함수를 사용할 수 있습니다.
+      // (1) 한살먹기 함수는 강아지 class로부터 생성된 오브젝트가 사용하면 콘솔창에 에러를 출력해주어야합니다.
+      // (2) 한살먹기 함수는 고양이 class로 부터 생성된 오브젝트가 사용하면 현재 가지고있는 age 속성에 1을 더해주는 기능을 실행해야합니다.
+      // 한살먹기 함수는 어떻게 만들면 좋을까요? (검색이 필요할 수 있습니다)
+      class Dog {
+        constructor(타입, 칼라) {
+          this.type = 타입;
+          this.color = 칼라;
+        }
+        한살먹기() {
+          if (this instanceof Cat) {
+            this.age++;
+          }
+        }
+      }
+
+      class Cat extends Dog {
+        constructor(타입, 칼라, 나이) {
+          super(타입, 칼라);
+          this.age = 나이;
+        }
+      }
     </script>
   </body>
 </html>
