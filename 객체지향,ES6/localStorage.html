@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>localStorage</title>
+  </head>
+  <body>
+    <script>
+      // ## **localStorage**
+      // localStorage는 웹 브라우저에서 제공하는 클라이언트 측 데이터 저장소이다.
+      // 웹 애플리케이션에서 데이터를 영구적으로 저장하고 사용할 수 있는 기능을 제공한다.
+
+      // 2개의 인자를 받는데
+      // `(첫번째는 저장할 데이터의 키, 두번째는 저장할 데이터의 값)`
+
+      // 1. **데이터 저장하기**
+      // localStorage.`setItem`('Key', 'Value')은 메서드를 사용하여 데이터를 저장
+      // `key는 저장할 데이터의 식별자`
+      // `value는 저장할 데이터`
+      // 값은 문자열 (string)형태로 저장
+      localStorage.setItem('키', '값');
+        
+
+      // 2. **데이터 불러오기**  
+      const myData = localStorage.getItem('키');
+      console.log(myData)
+      // localStorage.`getItem`('key') 메서드를 사용하여 저장된 데이터를 불러온다.
+      // key는 저장된 데이터의 식별자(key)이다.
+
+
+      // 1. **데이터 삭제하기**
+      // localStorage.removeItem('키');
+      // localStorage.`removeItem`('Key')메서드를 사용하여 저장된 데이터를 삭제한다.
+
+      // key는 삭제할 데이터의 식별자 (key)이다.
+      // 로컬스토리지에 저장되는 데이터는 브라우저를 종료해도 계속 유지된다. 따라서 데이터를 영구적으로 저장하고 사용할 수 있다.
+      // **배열로 저장해야 할 때**
+
+
+      // 배열로 저장할때
+      const userList = ['a','b','c','d']//사용할 목록 배열
+
+      // **`JSON.stringify()`** 함수를 사용하여 배열을 문자열로 변환하고,
+      // **`JSON.parse()`** 함수를 사용하여 문자열을 다시 배열로 변환할 수 있습니다.
+        
+      // 배열을 문자열로 변환하여 로컬스토리지에 저장하고
+      localStorage.setItem('userList', JSON.stringify(userList));
+                
+      // 로컬스토리지에서 배열을 가져와 다시 배열로 변환
+      const storedUserList = JSON.parse(localStorage.getItem('userList'));
+
+      // 가져온 배열 출력
+      console.log(storedUserList);
+        
+
+      // **응용하기**
+
+      // 저장하기
+      // product 객체를 문자열로 변환하여 로컬스토리지에 저장
+      localStorage.setItem('product', JSON.stringify(product));
+        
+      // 가져오기
+      // 로컬스토리지에서 product 객체를 가져와 객체로 변환
+      const storedProduct = JSON.parse(localStorage.getItem('product'));
+      console.log(storedProduct);
+        
+      // 로컬스토리지에서 특정 키의 값을 가져옵니다.
+      const storedItems = localStorage.getItem("product");
+
+      // 가져온 값을 객체로 변환합니다.
+      const items = JSON.parse(storedItems);
+
+      // 가져온 값을 확인합니다.
+      console.log(items);
+        
+    </script>
+  </body>
+</html>
