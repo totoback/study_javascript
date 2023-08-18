@@ -6,23 +6,23 @@
 //  장군개미 네 마리와 병정개미 한 마리를 데리고 간다면 더 적은 병력으로 사냥할 수 있습니다.
 //  사냥감의 체력 hp가 매개변수로 주어질 때,
 //  사냥감의 체력에 딱 맞게 최소한의 병력을 구성하려면 몇 마리의 개미가 필요한지를 return하도록 solution 함수를 완성해주세요.
-// function solution(hp) {
-//   var totalAnts = 0;
+function solution(hp) {
+  var totalAnts = 0;
 
-//   //필요한 장군개미의 수 계산
-//   totalAnts += Math.floor(hp/5)
-//   hp = hp % 5
+  //필요한 장군개미의 수 계산
+  totalAnts += Math.floor(hp/5)
+  hp = hp % 5
 
-//   //필요한 병정개미의 수 계산
-//   totalAnts += Math.floor(hp/3);
-//   hp = hp % 3
+  //필요한 병정개미의 수 계산
+  totalAnts += Math.floor(hp/3);
+  hp = hp % 3
 
-//   //필요한 일개미의 수 계산
-//   totalAnts += hp;
+  //필요한 일개미의 수 계산
+  totalAnts += hp;
 
-//   console.log(totalAnts)
-//   return totalAnts;
-// }
+  console.log(totalAnts)
+  return totalAnts;
+}
 
 // 다른사람 풀이
 // function solution(hp) {
