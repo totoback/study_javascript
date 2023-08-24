@@ -24,3 +24,11 @@ function solution(num, k) {
 
 solution(29183,1);
 
+
+//**문자열 정렬하기(2) */
+function solution(my_string) {
+  var answer = my_string.toString().toLowerCase().split("").sort().join("");
+  console.log(answer);
+  return answer;
+}
+solution("heLLo") 
