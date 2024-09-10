@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- css초기화 -->
+    <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css" rel="stylesheet">
+
+    <!-- gsap -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Flip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Observer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Draggable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/MotionPathPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/EaselPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/PixiPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/TextPlugin.min.js"></script>
+
+    <!-- RoughEase, ExpoScaleEase and SlowMo are all included in the EasePack file -->    
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/EasePack.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
+    
+    <title>glock</title>
+</head>
+<style>
+    body {
+    /* min-height: 200vh; */
+    margin:0;
+    background-color: #111;
+    background-image:
+        linear-gradient(rgba(255,255,255,.07) 2px, transparent 2px),
+        linear-gradient(90deg, rgba(255,255,255,.07) 2px, transparent 2px),
+        linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+    background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+    background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+    }
+
+    .glock {
+    margin-top:700px;
+    position: relative;
+    padding: 20px;
+    max-width: 1200px;
+    width: 100%;
+    }
+    .piece:not(.base) {
+    position: absolute;
+    bottom: 53vw;
+    }
+    .slide {
+    width: 92.083%;
+    }
+    .barrel {
+    width: 54.25%;
+    left: 7.5%;
+    }
+    .spring {
+    width: 40.333%;
+    left: 8.5%;
+    }
+
+
+</style>
+<body>
+    <section class="glock">
+        <img src="https://assets.codepen.io/16327/teardown-barrel.png" class="barrel piece" alt="barrel">
+        <img src="https://assets.codepen.io/16327/teardown-spring.png" class="spring piece" alt="spring">
+        <img src="https://assets.codepen.io/16327/teardown-slide.png" class="slide piece" alt="slide">
+        <img src="https://assets.codepen.io/16327/teardown-base.png" class="base piece" alt="base">
+      </section>
+</body>
+<script>
+    gsap.timeline({
+    scrollTrigger: {
+        trigger: ".glock",
+        start: "top center",
+        end: "top top",
+        scrub: true
+    }
+    })
+    .to(".slide",  { yPercent: -40 }, 0)
+    .to(".barrel", { yPercent:  45 }, 0)
+    .to(".spring", { yPercent: 170 }, 0)
+    .to(".base",   { yPercent:  35 }, 0)
+</script>
+</html>

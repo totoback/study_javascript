@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body,html {height:100%;margin:0;padding:0}
+    ul, li, dl, dt, dd, p, span{margin:0;padding:0}
+    a{text-decoration:none}
+    li{list-style:none}
+    a{text-decoration:none}
+    *, :after, :before{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
+    :root{--primary:#cb0d35}
+
+
+    #inc04{overflow:hidden;position:relative;padding-top:200vh }
+    #inc04 .circle{opacity:.08;position:absolute;right:-265px;top:-265px;width:535px;height:535px;border-radius:50%;background:var(--primary)}
+    #inc04 .deco{position:absolute;left:0;bottom:0}
+    #inc04 .deco_mask{position:absolute;left:0;bottom:0;transform-origin:left bottom;width:550px;height:550px;background:#fff}
+    #inc05{height:100vh;background:var(--primary)}
+</style>
+<body>
+    <article id="inc04">
+        <div class="deco">
+            <img width="100%" height="100%" class="slideImage" src="https://source.unsplash.com/random/500x300">
+        </div>
+        <div class="deco_mask"></div>
+    
+        <div class="circle" data-aos="fade-left"></div>
+    </article>
+    <article id="inc05"></div>
+</body>
+</html>
+<script>
+    $(window).on("scroll", function () {
+    var rotatei = $(this).scrollTop();
+    $(".deco_mask").css("transform", "rotate("+rotatei/6+"deg)");
+    });
+</script>

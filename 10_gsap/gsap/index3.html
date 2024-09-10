@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- css초기화 -->
+    <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css" rel="stylesheet">
+
+    <!-- gsap -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Flip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Observer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Draggable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/MotionPathPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/EaselPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/PixiPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/TextPlugin.min.js"></script>
+
+    <!-- RoughEase, ExpoScaleEase and SlowMo are all included in the EasePack file -->    
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/EasePack.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
+    
+    <title>img slide</title>
+</head>
+<style>
+    body {
+    min-height: 500vh;
+    margin:0;
+    background-color: #111;
+    background-image:
+        linear-gradient(rgba(255,255,255,.07) 2px, transparent 2px),
+        linear-gradient(90deg, rgba(255,255,255,.07) 2px, transparent 2px),
+        linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+    background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+    background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+    }
+
+    .box {
+    width:100px;
+    height:100px;
+    box-sizing:border-box;
+    border:10px solid grey;
+    margin-top:100px;
+    margin-bottom:100px;
+    }
+
+    .box-1 {background-color:green;}
+    .box-2 {background-color:gold;}
+    .box-3 {background-color:blue;}
+    .box-4 {background-color:red;}
+
+    .img-wrap{height: 100vh;display:flex;align-items: center;gap:20px;position: relative;}
+    .img{flex:0 0 auto;width: 500px;height: 300px;background: #fff;}
+    .img img{width: 100%;}
+</style>
+<body>
+    <div class="box box-1"></div>
+    <div class="box box-2"></div>
+    <div class="box box-3"></div>
+    <div class="box box-4"></div>
+
+    <div class="img-wrap">
+        <div class="img"><img width="500" height="300" class="slideImage" src="https://source.unsplash.com/random/500x300"></div>
+        <div class="img"><img width="500" height="300" class="slideImage" src="https://source.unsplash.com/random/500x300"></div>
+        <div class="img"><img width="500" height="300" class="slideImage" src="https://source.unsplash.com/random/500x300"></div>
+        <div class="img"><img width="500" height="300" class="slideImage" src="https://source.unsplash.com/random/500x300"></div>
+        <div class="img"><img width="500" height="300" class="slideImage" src="https://source.unsplash.com/random/500x300"></div>
+    </div>
+</body>
+<script>
+    gsap.to(".box-3", {
+        scrollTrigger: {
+            trigger: '.box-3',//객체기준범위
+            start: "0% 30%",//시작 지점
+            end: "100% 80%",//끝 지점
+            // end: "+=500"//시작 부분부터 500px까지 스크롤 한 후종료
+            scrub: 1,//start-end 영역 안에서 스크롤 상하에 따라 움직임이 계속 재생된다.
+            //markers: true,//개발가이드선
+        },
+    x: 600,
+    rotation: 360
+    });
+    gsap.to(".box-4", {
+        scrollTrigger: {
+            trigger: '.box-4',//객체기준범위
+            start: "0% 30%",//시작 지점
+            end: "100% 80%",//끝 지점
+            // end: "+=500"//시작 부분부터 500px까지 스크롤 한 후종료
+            scrub: 1,//start-end 영역 안에서 스크롤 상하에 따라 움직임이 계속 재생된다.
+            //markers: true,//개발가이드선
+        },
+    x: 600,
+    rotation: 360
+    });
+
+    gsap.utils.toArray(".img").forEach((img, index) => {
+        gsap.to(img, {
+            scrollTrigger: {
+                trigger: img,
+                start: "top center", // 이미지가 화면 중앙에 오면 시작
+                end:"top bottom ",
+                //end: () => "+=" + (document.documentElement.clientWidth * 0.5), // 화면의 절반만큼 스크롤되면 끝
+                scrub: 1,
+                markers: true,
+                pin: true,
+                //inSpacing: false
+            },
+            x: -1000,
+        });
+    });
+</script>
+</html>

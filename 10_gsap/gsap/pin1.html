@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css" rel="stylesheet">
+    <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossorigin="crossorigin">
+        <link
+            href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+            rel="stylesheet">
+    <title>Document</title>
+</head>
+<style>
+    .wrap{display: flex;font-size: 20px;}
+    .wrap > *{width: 100%;}
+    .left{position: sticky;left: 0; top: 0;}
+    .item{display: flex;align-items: center;justify-content: center;width: 100%;height: 100vh;}
+    .item1{background: #000;color:#fff}
+    .item2{background: #999;color:#fff}
+    .item3{background: #777;color:#fff}
+    .box{height: 100vh;background: #000;}
+    .wrap2{width: 500%;overflow-x:hidden;height: 100vh;background: #000;display: flex;align-items: center;}
+    .horizontal-sliders{gap:20px;display:flex;flex-wrap:no-wrap;width: 500%;overflow-x:hidden;}
+    .next-block{height:100vh;background:blue;}
+    .services-carousel-item {
+    padding: 40px;
+    border-radius: 64px;
+    background: var(--900, #161616);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    }
+    .services-carousel-item__content{
+        position: relative;
+        gap:30px;
+  display: flex;
+          flex-direction: column;
+    }
+    .p2{
+        font-family: "DM Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 160%;
+    margin: 0;
+    color:#fff;
+    }
+    .services-carousel-item__header{font-family: "DM Sans", sans-serif;font-size: 36px;color:#fff;}
+</style>
+<body>
+    <div class="box"></div>
+    <!-- 양쪽 사이드 분할 고정 -->
+    <div class="wrap">
+        <div class="left">왼쪽 고정</div>
+        <div class="right">
+            <ul>
+                <li class="item item1">1</li>
+                <li class="item item2">2</li>
+                <li class="item item3">3</li>
+            </ul>
+        </div>
+    </div>
+    <!-- 가로 슬라이드 -->
+    <div class="wrap2 main">
+        <div class="horizontal-sliders">
+            <div class="slide">
+                <div class="services-carousel-item" data-modalopen="1">
+                    <div class="services-carousel-item__content">
+                        <h4 class="services-carousel-item__header">
+                            Email Campaign Management
+                        </h4>
+                        <p class="services-carousel-item__text p2">
+                            We engage and connect our clients from all over the world with their target
+                            audience.
+                        </p>
+                        <div class="services-carousel-item__img">
+                            <img
+                                src="https://webimpact.llc/wp-content/themes/webimpact/assets/img/services/s1.png"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="services-carousel-item" data-modalopen="1">
+                    <div class="services-carousel-item__content">
+                        <h4 class="services-carousel-item__header">
+                            Email Campaign Management
+                        </h4>
+                        <p class="services-carousel-item__text p2">
+                            We engage and connect our clients from all over the world with their target
+                            audience.
+                        </p>
+                        <div class="services-carousel-item__img">
+                            <img
+                                src="https://webimpact.llc/wp-content/themes/webimpact/assets/img/services/s1.png"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="services-carousel-item" data-modalopen="1">
+                    <div class="services-carousel-item__content">
+                        <h4 class="services-carousel-item__header">
+                            Email Campaign Management
+                        </h4>
+                        <p class="services-carousel-item__text p2">
+                            We engage and connect our clients from all over the world with their target
+                            audience.
+                        </p>
+                        <div class="services-carousel-item__img">
+                            <img
+                                src="https://webimpact.llc/wp-content/themes/webimpact/assets/img/services/s1.png"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="services-carousel-item" data-modalopen="1">
+                    <div class="services-carousel-item__content">
+                        <h4 class="services-carousel-item__header">
+                            Email Campaign Management
+                        </h4>
+                        <p class="services-carousel-item__text p2">
+                            We engage and connect our clients from all over the world with their target
+                            audience.
+                        </p>
+                        <div class="services-carousel-item__img">
+                            <img
+                                src="https://webimpact.llc/wp-content/themes/webimpact/assets/img/services/s1.png"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="services-carousel-item" data-modalopen="1">
+                    <div class="services-carousel-item__content">
+                        <h4 class="services-carousel-item__header">
+                            Email Campaign Management
+                        </h4>
+                        <p class="services-carousel-item__text p2">
+                            We engage and connect our clients from all over the world with their target
+                            audience.
+                        </p>
+                        <div class="services-carousel-item__img">
+                            <img
+                                src="https://webimpact.llc/wp-content/themes/webimpact/assets/img/services/s1.png"></div>
+                    </div>
+                </div>
+            </div>
+          </div>
+    </div>
+    <!-- 가로슬라이드 끝나고 다음페이지 -->
+    <div class="next-block">
+        this is next block
+      </div>
+</body>
+<script>
+
+    // 양쪽 사이드 분할 고정
+    gsap.to(".left", {
+        scrollTrigger: {
+            trigger: ".wrap",
+            start: "top top",
+            end: "bottom top",
+            pin: true,
+            pinSpacing: false
+        }
+    });
+
+    let panels = gsap.utils.toArray(".item");
+    panels.forEach((panel, i) => {
+        ScrollTrigger.create({
+            trigger: panel, // 트리거하는 요소
+            start: "top top", // 시작 위치
+            pin: true, // 트리거 작동시 핀 고정
+            scrub: 0.5, // 스크롤 속도
+            pinSpacing: false // 핀 지정 간격 자동
+        });
+    });
+
+    //<!-- 가로 슬라이드 -->
+    gsap.registerPlugin(ScrollTrigger);
+    let sections = gsap.utils.toArray(".slide");
+        
+    gsap.to(sections, {
+        xPercent: -100 * (sections.length - 1), // 요소들을 가로 방향으로 이동시킵니다. 이동 거리는 모든 요소의 가로 폭의 합입니다.
+        ease: "none",
+        scrollTrigger: {
+            trigger: ".wrap2",
+            pin: ".wrap2",
+            pinSpacing: true,
+            scrub: 1,
+            end: "+=3000",
+        }
+    });
+    //<!-- 가로슬라이드 끝나고 다음페이지 -->
+    gsap.to('.next-block',{
+        backgroundColor:'tomato',
+        scrollTrigger:{
+            trigger:'.next-block',
+            pinnedContainer: ".main",
+            start:'top 50%', //ScrollTrigger가 동작하는 시작 지점을 설정합니다. 화면의 상단에서 50% 지점에서 시작됩니다.
+            toggleActions: 'play none reset none',
+        }
+    })
+
+</script>
+</html>

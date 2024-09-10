@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- css초기화 -->
+    <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css" rel="stylesheet">
+
+    <!-- gsap -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Flip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Observer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Draggable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/MotionPathPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/EaselPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/PixiPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/TextPlugin.min.js"></script>
+
+    <!-- RoughEase, ExpoScaleEase and SlowMo are all included in the EasePack file -->    
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/EasePack.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
+    
+    <title>text</title>
+</head>
+<style>
+    .box-wrap .box { 
+        width: 100px;
+        height: 100px;
+        background-color: orange;
+    }
+    .box-wrap .box2 { 
+        width: 100px;
+        height: 100px;
+        background-color: red;
+    }
+    .box-wrap .box3 { 
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+    }
+    .timeline .box { 
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+    }
+    .timeline2 .box { 
+        width: 100px;
+        height: 100px;
+    }
+    .timeline2 .box1 { background-color: orange;}
+    .timeline2 .box2 { background-color: tomato;}
+    .timeline2 .box3 { background-color: skyblue;}
+    .timeline2 .box4 { background-color: green;}
+    .timeline2 .box5 { background-color: pink;}
+    .timeline2 .box6 { background-color: gray;}
+    .timeline2 .box7 { background-color: skyblue;}
+</style>
+<body>
+    <div class="box-wrap">
+        <div class="box">
+            gsap.to() = animate()
+        </div>
+        <div class="box2">시작값을 정하고 원래대로 되돌아오는 애니메이션</div>
+        <div class="box3">fromTo</div>
+    </div>
+    <hr>
+    <h5>timeline</h5>
+    <div class="timeline">
+        <div class="box"></div>
+        <div class="box2 box"></div>
+        <div class="box3 box"></div>
+    </div>
+    <hr>
+    <h5>timeline</h5>
+    <div class="timeline2">
+        <div class="box1 box"></div>
+        <div class="box2 box"></div>
+        <div class="box3 box"></div>
+        <div class="box4 box"></div>
+        <div class="box5 box"></div>
+        <div class="box6 box"></div>
+        <div class="box7 box"></div>
+    </div>
+</body>
+<script>
+    gsap.to(".box-wrap .box", { // 타겟
+        x: 200, // 속성
+        duration: 2// 속성 값(선택)
+    });
+    gsap.from(".box-wrap .box2", { // 타겟
+        x: 200, // 속성
+        duration: 2// 속성 값(선택)
+    });
+    gsap.fromTo(".box-wrap .box3", 
+        { height: 50 }, // from
+        { y: 100, height: 150, duration: 3 } // to
+    );
+
+    const tl = gsap.timeline();
+
+    tl.to(".timeline .box", { x: 100 })
+    .to(".timeline .box2", { x: 200, scale: .5, duration: 1 }) //1초 후에 애니메이션 작동
+    .to(".timeline .box3", { x: 300, rotate: 180 })
+
+    const tl2 = gsap.timeline();
+
+    tl2.to(".box1", { x: 100 })
+    .to(".box2", { x: 200, scale: .5, duration: 1 }, "+=3" ) // 타임라인 종료 3초 후 (갭)
+    .to(".box3", { x: 300, rotate: 180 }, "-=3") // 타임라인 종료 3초 전 (오버랩)
+    .to(".box4", { x: 400, scale: 1.5 }, 5) // 타임라인 시작으로부터 5초 후 (절대적)
+    .to(".box5", { y: -100, duration: 1 }, "<") // 이전 트윈 타임라인 시작지점
+    .to(".box6", { x: 150, y: -100 }, ">") // 이전 트윈 타임라인 종료지점
+</script>
+</html>

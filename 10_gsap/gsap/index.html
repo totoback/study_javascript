@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- css초기화 -->
+    <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css" rel="stylesheet">
+
+    <!-- gsap -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Flip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Observer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Draggable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/MotionPathPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/EaselPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/PixiPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/TextPlugin.min.js"></script>
+
+    <!-- RoughEase, ExpoScaleEase and SlowMo are all included in the EasePack file -->    
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/EasePack.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
+    
+    <title>text</title>
+</head>
+<style>
+    @charset "utf-8";
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css');/* regular-400, medium-500, semibold-600, bold-700 */ 
+
+    #atc03 .txt_wrap{display:flex;flex-direction:column;justify-content:center; align-items:flex-start;height:200vh;padding-left:30px;font-size:70px;font-weight:900;line-height:1.15;color:rgba(0,0,0,.2)}
+    #atc03 .txt_wrap p{position:relative;width:max-content;background:linear-gradient(to right, #000, #000) no-repeat;-webkit-background-clip:text;background-clip:text;background-size:0%;transition:background-size cubic-bezier(.1,.5,.5,1) 0.5s}
+    #atc03 .txt_wrap p.stroke{color:transparent;  -webkit-text-stroke:2px #000}
+
+</style>
+<body>
+    <div id="atc03">
+        <div class="txt_wrap">
+          <p class="txt">황금 비율로</p>
+          <p class="txt">완성된</p>
+          <p class="stroke">특별한 레시피를</p>
+          <p class="txt">만나보세요</p>
+        </div>
+      </div>
+      <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        const textElements = gsap.utils.toArray('#atc03 .txt');
+            textElements.forEach(text => {
+            gsap.to(text, {
+                backgroundSize: '100%',
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: text,
+                    start: 'center 80%',
+                    end: 'center 50%',
+                    scrub: true,
+                },
+            });
+        });
+    </script>
+</body>
+</html>

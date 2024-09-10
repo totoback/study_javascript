@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <!-- gsap cdn -->
+    <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+</head>
+
+<style>
+    .intro {position: relative;display: flex;justify-content: center;align-items: center;height: 200vh;box-sizing: border-box;background: url("https://images.unsplash.com/photo-1693733470033-c628154571b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3000&q=80") 50% 100% / cover no-repeat;}
+    .cover {line-height:1;display: flex;justify-content: center;align-items: center;position: fixed;top: 0;left: 0;width: 100%;height: 100%;background: red;font-size: 10vw;font-weight: 800;mix-blend-mode: lighten;color: #000;background-color: white;}
+    section {overflow: hidden;position: relative;height: 80vh;margin: 0;padding: 100px 0;background-color: #fff;background-image: linear-gradient(rgba(0,0,0,.07) 2px, transparent 2px), linear-gradient(90deg, rgba(0,0,0,.07) 2px, transparent 2px), linear-gradient(rgba(0,0,0,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,.06) 1px, transparent 1px);background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;border: 5px solid #000;}
+    .box {width: 200px;height: 200px;margin-bottom: 100px;box-sizing: border-box;}
+    .box1 {position: absolute;top: 200px;left: 50%;transform: translateX(-50%);width: 100px;height: 100px;border-radius: 50%;background: lightblue;}
+    .box2 {background: blue;}
+    .services-carousel-item {padding: 40px;border-radius: 64px;background: var(--900, #161616);color: #fff;display: flex;flex-direction: column;justify-content: space-between;align-items: flex-start;}
+    .services-carousel-item__content{position: relative;gap:30px;color: #000;display: flex;flex-direction: column;}
+    .section1{display: flex;width: 100%;overflow: hidden;width: 500%;overflow-x:hidden;height: 100vh;background: #000;}
+    .section1 .horizontal-sliders{color: #fff;display: flex;align-items: center;gap:50px}
+    .p2{font-family: "DM Sans", sans-serif;font-size: 16px;font-weight: 400;line-height: 160%;margin: 0;color:#fff;}
+    .intro{overflow: hidden;}
+    .services-carousel-item__header{font-family: "DM Sans", sans-serif;font-size: 36px;color:#fff;}
+</style>
+
+<body>
+    <div class="intro">
+        <div class="cover">We engage and connect our clients from all over the world with their target audience.</div>
+    </div>
+    <section class="section">
+        <div class="box box1"></div>
+    </section>
+    <section class="section1">
+        <div class="horizontal-sliders">
+            <div class="slide">
+                <div class="services-carousel-item" data-modalopen="1">
+                    <div class="services-carousel-item__content">
+                        <h4 class="services-carousel-item__header">
+                            Email Campaign Management
+                        </h4>
+                        <p class="services-carousel-item__text p2">
+                            We engage and connect our clients from all over the world with their target
+                            audience.
+                        </p>
+                        <div class="services-carousel-item__img"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="services-carousel-item" data-modalopen="1">
+                    <div class="services-carousel-item__content">
+                        <h4 class="services-carousel-item__header">
+                            Email Campaign Management
+                        </h4>
+                        <p class="services-carousel-item__text p2">
+                            We engage and connect our clients from all over the world with their target
+                            audience.
+                        </p>
+                        <div class="services-carousel-item__img"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="services-carousel-item" data-modalopen="1">
+                    <div class="services-carousel-item__content">
+                        <h4 class="services-carousel-item__header">
+                            Email Campaign Management
+                        </h4>
+                        <p class="services-carousel-item__text p2">
+                            We engage and connect our clients from all over the world with their target
+                            audience.
+                        </p>
+                        <div class="services-carousel-item__img"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="services-carousel-item" data-modalopen="1">
+                    <div class="services-carousel-item__content">
+                        <h4 class="services-carousel-item__header">
+                            Email Campaign Management
+                        </h4>
+                        <p class="services-carousel-item__text p2">
+                            We engage and connect our clients from all over the world with their target
+                            audience.
+                        </p>
+                        <div class="services-carousel-item__img"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="services-carousel-item" data-modalopen="1">
+                    <div class="services-carousel-item__content">
+                        <h4 class="services-carousel-item__header">
+                            Email Campaign Management
+                        </h4>
+                        <p class="services-carousel-item__text p2">
+                            We engage and connect our clients from all over the world with their target
+                            audience.
+                        </p>
+                        <div class="services-carousel-item__img"></div>
+                    </div>
+                </div>
+            </div>
+          </div>
+    </section>
+    <section class="section2">
+        <div class="box box2"></div>
+    </section>
+    
+</body>
+
+</html>
+<script>
+    
+    gsap.to(".cover", {
+    top: "-100%",
+
+    duration: 1,
+        scrollTrigger: {
+            trigger: '.intro',//객체기준범위
+            start: "0% 0%",//시작 지점
+            end: "bottom bottom",//끝 지점
+            // end: "+=500"//시작 부분부터 500px까지 스크롤 한 후종료
+            scrub: 1,//부드러운 스크러빙
+            markers: true,//개발가이드선
+        },
+    });
+
+     //<!-- 가로 슬라이드 -->
+     gsap.registerPlugin(ScrollTrigger);
+        let sections = gsap.utils.toArray(".slide");
+            
+        gsap.to(sections, {
+            xPercent: -100 * (sections.length - 1), // 요소들을 가로 방향으로 이동시킵니다. 이동 거리는 모든 요소의 가로 폭의 합입니다.
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".wrap2",
+                pin: ".wrap2",
+                pinSpacing: true,
+                scrub: 1,
+                end: "+=3000",
+            }
+        });
+        //<!-- 가로슬라이드 끝나고 다음페이지 -->
+        gsap.to('.section2',{
+            backgroundColor:'tomato',
+            scrollTrigger:{
+                trigger:'.section2',
+                pinnedContainer: ".section1",
+                start:'top 50%', //ScrollTrigger가 동작하는 시작 지점을 설정합니다. 화면의 상단에서 50% 지점에서 시작됩니다.
+                toggleActions: 'play none reset none',
+            }
+        })
+    gsap.to(".box1", {
+        scale: 10,
+        borderRadius: 0,
+        duration: 2,
+        scrollTrigger: {
+            trigger: '.section',//객체기준범위
+            start: "0% 30%",//시작 지점
+            end: "100% 80%",//끝 지점
+            // end: "+=500"//시작 부분부터 500px까지 스크롤 한 후종료
+            scrub: 1,//부드러운 스크러빙
+            markers: false,//개발가이드선
+        }
+    });
+
+    gsap.to(".box2", {
+        x: 800,
+        y: 300,
+        rotation: 360,
+        scrollTrigger: {
+            trigger: '.section2',//객체기준범위
+            start: "0% 30%",//시작 지점
+            end: "100% 80%",//끝 지점
+            // end: "+=500"//시작 부분부터 500px까지 스크롤 한 후종료
+            scrub: 1,//부드러운 스크러빙
+            markers: false,//개발가이드선
+        }
+    });
+
+   
+</script>
